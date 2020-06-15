@@ -7,8 +7,8 @@ module.exports = {
         if (temp2.stage === "cultivation") {
             data_list.push({
             BatchId: temp2.id,
-            CultivationStage: "Processing",
-            FarmInspectorStage: "Not available",
+            CultivationStage: "Completed",
+            FarmInspectorStage: "Processing",
             HarvesterStage: "Not available",
             ExporterStage: "Not available",
             ImporterStage: "Not available",
@@ -19,8 +19,8 @@ module.exports = {
             data_list.push({
             BatchId: temp2.id,
             CultivationStage: "Completed",
-            FarmInspectorStage: "Processing",
-            HarvesterStage: "Not available",
+            FarmInspectorStage: "Completed",
+            HarvesterStage: "Processing",
             ExporterStage: "Not available",
             ImporterStage: "Not available",
             ProcessorStage: "Not available"
@@ -31,8 +31,8 @@ module.exports = {
             BatchId: temp2.id,
             CultivationStage: "Completed",
             FarmInspectorStage: "Completed",
-            HarvesterStage: "Processing",
-            ExporterStage: "Not available",
+            HarvesterStage: "Completed",
+            ExporterStage: "Processing",
             ImporterStage: "Not available",
             ProcessorStage: "Not available"
             });
@@ -42,8 +42,8 @@ module.exports = {
             CultivationStage: "Completed",
             FarmInspectorStage: "Completed",
             HarvesterStage: "Completed",
-            ExporterStage: "Processing",
-            ImporterStage: "Not available",
+            ExporterStage: "Completed",
+            ImporterStage: "Processing",
             ProcessorStage: "Not available"
             });
         } else if (temp2.stage === "importer") {
@@ -53,8 +53,8 @@ module.exports = {
             FarmInspectorStage: "Completed",
             HarvesterStage: "Completed",
             ExporterStage: "Completed",
-            ImporterStage: "Processing",
-            ProcessorStage: "Not available"
+            ImporterStage: "Completed",
+            ProcessorStage: "Processing"
             });
         } else if (temp2.stage === "processor") {
             data_list.push({
@@ -64,7 +64,7 @@ module.exports = {
             HarvesterStage: "Completed",
             ExporterStage: "Completed",
             ImporterStage: "Completed",
-            ProcessorStage: "Processing"
+            ProcessorStage: "Completed"
             });
         }
     }
