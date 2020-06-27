@@ -11,7 +11,7 @@ module.exports = async () => {
     try {
         const credPath = path.join(networkPath, '/crypto-config/peerOrganizations/farminspector.supplychain.com/users/Admin@farminspector.supplychain.com');
         const cert = fs.readFileSync(path.join(credPath, '/msp/signcerts/Admin@farminspector.supplychain.com-cert.pem')).toString();
-        const key = fs.readFileSync(path.join(credPath, '/msp/keystore/028370674a48d748797d9e45de0e4f272f104da859de4ab9cab56f5d94d6738b_sk')).toString();
+        const key = fs.readFileSync(path.join(credPath, '/msp/keystore/bf6fe7053bf5c809a3abe551376542acf1f08d47caac5b9678fb5f3ba827fd87_sk')).toString();
 
         const identityLabel = 'Admin@farminspector.supplychain.com'
         const identity = X509WalletMixin.createIdentity('FarmInspectorMSP', cert, key)

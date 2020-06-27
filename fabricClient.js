@@ -188,6 +188,7 @@ module.exports = {
             let connectionProfile = yaml.safeLoad(fs.readFileSync('./config.yaml', 'utf8'));
             let connectionOptions = {
                 identity: userName,
+                clientTlsIdentity: userName,
                 wallet: wallet,
                 discovery: { enabled: true, asLocalhost: true }
             };

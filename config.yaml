@@ -8,7 +8,7 @@ client:
     level: info
 
   cryptoconfig:
-    path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config
+    path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config
 
   credentialStore:
     path: /tmp/supplychain-store
@@ -31,7 +31,10 @@ client:
 channels:
   scchannel:
     orderers:
-      - orderer.supplychain.com
+      - orderer1.supplychain.com
+      - orderer2.supplychain.com
+      - orderer3.supplychain.com
+
     peers:
       peer0.farminspector.supplychain.com:
         endorsingPeer: true
@@ -94,14 +97,32 @@ orderers:
       fail-fast: false
       allow-insecure: false
 
-  orderer.supplychain.com:
+  orderer1.supplychain.com:
     url: grpc://localhost:7050
     grpcOptions:
-      ssl-target-name-override: orderer.supplychain.com
+      ssl-target-name-override: orderer1.supplychain.com
       grpc-max-send-message-length: 10000
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/ordererOrganizations/supplychain.com/msp/tlscacerts/tlsca.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/ordererOrganizations/supplychain.com/msp/tlscacerts/tlsca.supplychain.com-cert.pem
+
+  orderer2.supplychain.com:
+    url: grpc://localhost:8050
+    grpcOptions:
+      ssl-target-name-override: orderer2.supplychain.com
+      grpc-max-send-message-length: 10000
+
+    tlsCACerts:
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/ordererOrganizations/supplychain.com/msp/tlscacerts/tlsca.supplychain.com-cert.pem
+
+  orderer3.supplychain.com:
+    url: grpc://localhost:9050
+    grpcOptions:
+      ssl-target-name-override: orderer3.supplychain.com
+      grpc-max-send-message-length: 10000
+
+    tlsCACerts:
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/ordererOrganizations/supplychain.com/msp/tlscacerts/tlsca.supplychain.com-cert.pem
 
 peers:
   _default:
@@ -119,7 +140,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/farminspector.supplychain.com/msp/tlscacerts/tlsca.farminspector.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/farminspector.supplychain.com/msp/tlscacerts/tlsca.farminspector.supplychain.com-cert.pem
 
   peer1.farminspector.supplychain.com:
     url: grpcs://localhost:8051
@@ -128,7 +149,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/farminspector.supplychain.com/msp/tlscacerts/tlsca.farminspector.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/farminspector.supplychain.com/msp/tlscacerts/tlsca.farminspector.supplychain.com-cert.pem
 
   peer0.harvester.supplychain.com:
     url: grpcs://localhost:9051
@@ -137,7 +158,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/harvester.supplychain.com/msp/tlscacerts/tlsca.harvester.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/harvester.supplychain.com/msp/tlscacerts/tlsca.harvester.supplychain.com-cert.pem
 
   peer1.harvester.supplychain.com:
     url: grpcs://localhost:10051
@@ -146,7 +167,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/harvester.supplychain.com/msp/tlscacerts/tlsca.harvester.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/harvester.supplychain.com/msp/tlscacerts/tlsca.harvester.supplychain.com-cert.pem
 
   peer0.exporter.supplychain.com:
     url: grpcs://localhost:11051
@@ -155,7 +176,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/exporter.supplychain.com/msp/tlscacerts/tlsca.exporter.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/exporter.supplychain.com/msp/tlscacerts/tlsca.exporter.supplychain.com-cert.pem
 
   peer1.exporter.supplychain.com:
     url: grpcs://localhost:12051
@@ -164,7 +185,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/exporter.supplychain.com/msp/tlscacerts/tlsca.exporter.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/exporter.supplychain.com/msp/tlscacerts/tlsca.exporter.supplychain.com-cert.pem
 
   peer0.importer.supplychain.com:
     url: grpcs://localhost:13051
@@ -173,7 +194,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/importer.supplychain.com/msp/tlscacerts/tlsca.importer.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/importer.supplychain.com/msp/tlscacerts/tlsca.importer.supplychain.com-cert.pem
 
   peer1.importer.supplychain.com:
     url: grpcs://localhost:14051
@@ -182,7 +203,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/importer.supplychain.com/msp/tlscacerts/tlsca.importer.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/importer.supplychain.com/msp/tlscacerts/tlsca.importer.supplychain.com-cert.pem
 
   peer0.processor.supplychain.com:
     url: grpcs://localhost:15051
@@ -191,7 +212,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/processor.supplychain.com/msp/tlscacerts/tlsca.processor.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/processor.supplychain.com/msp/tlscacerts/tlsca.processor.supplychain.com-cert.pem
 
   peer1.processor.supplychain.com:
     url: grpcs://localhost:16051
@@ -200,7 +221,7 @@ peers:
       grpc.http2.keepalive_time: 15
 
     tlsCACerts:
-      path: /home/sashank/Documents/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/processor.supplychain.com/msp/tlscacerts/tlsca.processor.supplychain.com-cert.pem
+      path: /home/sashank/Documents/Projects/FYP/coffee-supply-chain/network/crypto-config/peerOrganizations/processor.supplychain.com/msp/tlscacerts/tlsca.processor.supplychain.com-cert.pem
 
 entityMatchers:
   peer:
@@ -255,7 +276,17 @@ entityMatchers:
       mappedHost: peer1.processor.supplychain.com
 
   orderer:
-    - pattern: (\w*)orderer.supplychain.com(\w*)
+    - pattern: (\w*)orderer1.supplychain.com(\w*)
       urlSubstitutionExp: localhost:7050
-      sslTargetOverrideUrlSubstitutionExp: orderer.supplychain.com
-      mappedHost: orderer.supplychain.com
+      sslTargetOverrideUrlSubstitutionExp: orderer1.supplychain.com
+      mappedHost: orderer1.supplychain.com
+
+    - pattern: (\w*)orderer2.supplychain.com(\w*)
+      urlSubstitutionExp: localhost:8050
+      sslTargetOverrideUrlSubstitutionExp: orderer2.supplychain.com
+      mappedHost: orderer2.supplychain.com
+
+    - pattern: (\w*)orderer3.supplychain.com(\w*)
+      urlSubstitutionExp: localhost:9050
+      sslTargetOverrideUrlSubstitutionExp: orderer3.supplychain.com
+      mappedHost: orderer3.supplychain.com
