@@ -23,9 +23,7 @@ app.get('/queryResponse', (req, res) => {
 });
 
 app.post('/queryBatch', (req, res) => {
-    console.log(req.body);
     fabricClient.queryBatch(req.body.id).then((response) => {
-        console.log(response)
         res.json(response)
     }).catch((error) => {
         res.status(500);
@@ -34,7 +32,6 @@ app.post('/queryBatch', (req, res) => {
 });
 
 app.post('/createBatch', (req, res) => {
-    console.log(req.body);
     let str = JSON.stringify(req.body);
     fabricClient.createBatch(str).then((response) => {
         res.json(response);
@@ -45,7 +42,6 @@ app.post('/createBatch', (req, res) => {
 });
 
 app.post('/updateBatch', (req, res) => {
-    console.log(req.body)
     let data = JSON.stringify(req.body.data);
     fabricClient.updateBatch(req.body.id, req.body.stage, data).then((response) => {
         res.json(response);
